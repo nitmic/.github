@@ -14,7 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-      - uses: vn7n24fzkq/github-profile-summary-cards@release
+      # 上流は Organization の Private リポジトリを集計しないため、
+      # privacy: PUBLIC フィルタを外した nitmic のフォークを使用
+      - uses: nitmic/github-profile-summary-cards@release
         env:
           # Private リポジトリの統計を含めるには repo スコープの PAT が必要
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
